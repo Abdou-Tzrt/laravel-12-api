@@ -20,3 +20,7 @@ Route::post('/login', function(Request $request){
     return response()->json(["access_token" => $token, "type_token" => "Bearer"]);
 
 });
+
+Route::middleware('throttle:custom')->get('/limited', function () {
+    return 'You are not blocked (yet)';
+});
