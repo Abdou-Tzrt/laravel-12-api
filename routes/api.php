@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,5 @@ Route::post('/login', function(Request $request){
 Route::middleware('throttle:custom')->get('/limited', function () {
     return 'You are not blocked (yet)';
 });
+
+Route::apiResource('posts', PostController::class);
